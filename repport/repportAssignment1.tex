@@ -1,0 +1,49 @@
+\documentclass[a4paper,10pt, twocolumn]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{caption}
+\usepackage{array}
+\usepackage{lastpage}
+% \usepackage[top=3cm, bottom=3cm, left=2cm, right=2cm]{geometry}
+\usepackage{tikz}
+% \usepackage{epstopdf}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\renewcommand{\headrulewidth}{.25pt}
+\fancyhead[C]{{Homework Assignment 1}} 
+\fancyhead[L]{Page \thepage \ of \pageref{LastPage}}
+\fancyhead[R]{MF2007}
+
+\renewcommand{\footrulewidth}{.25pt}
+\fancyfoot[C]{\thepage} 
+% \fancyfoot[L]{truc}
+% \fancyfoot[R]{\leftmark}
+
+
+%opening
+\title{MF2007: Dynamic \& Motion Control \\ Homework 1}
+\author{Kilian \sc{Demeulemeester}, Jeremy \sc{Pouech}}
+
+\begin{document}
+
+\setlength\parindent{0em}
+
+\maketitle
+
+\section*{Parameter identification} 
+\input{part/ParameterID}	
+
+
+\section*{Controlling the motor}
+
+\input{part/ControllingMotor}
+
+
+\end{document}
