@@ -1,8 +1,13 @@
-\documentclass[a4paper,10pt, twocolumn]{article}
+\documentclass[a4paper,10pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
 \usepackage{array}
-\usepackage{lmodern}
+% \usepackage{lmodern}
+
+% \usepackage{concmath}
+\usepackage{cmbright}
+\usepackage[T1]{fontenc}
+
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{mathrsfs}
@@ -13,19 +18,22 @@
 \usepackage{tikz}
 % \usepackage{epstopdf}
 
+\renewcommand{\labelitemi}{-}
+
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 
-\renewcommand{\headrulewidth}{.25pt}
+\renewcommand{\headrulewidth}{.15pt}
 \fancyhead[C]{{Homework Assignment 1}} 
 \fancyhead[L]{Page \thepage \ of \pageref{LastPage}}
 \fancyhead[R]{MF2007}
 
-\renewcommand{\footrulewidth}{.25pt}
+\renewcommand{\footrulewidth}{.15pt}
 \fancyfoot[C]{\thepage} 
 % \fancyfoot[L]{truc}
 % \fancyfoot[R]{\leftmark}
 
+\setlength{\columnsep}{1cm}
 
 %opening
 \title{MF2007: Dynamic \& Motion Control \\ Homework 1}
@@ -40,6 +48,7 @@
 \section*{Parameter identification} 
 \input{part/ParameterID}	
 
+\clearpage
 
 \section*{Controlling the motor}
 
