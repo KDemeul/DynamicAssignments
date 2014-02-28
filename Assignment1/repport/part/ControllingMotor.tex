@@ -1,3 +1,16 @@
-\subsection*{Velocity control}
+\section*{Velocity control}
 
 \input{part/vellvl1}
+
+\section*{Position control}
+
+In the two following section, we design a discrete controller that controls the position of the motor, with the following specifications:
+
+\begin{itemize}
+ \item Step response to one revolution ($2\pi$) with rise time $t_r = 0.07 \text{ s,} \pm 0.005 \text{ s}$.
+ \item Maximum overshot $2\%$ of the step ($2\pi$)
+ \item Steady state error, maximum $0.5\%$
+\end{itemize}
+
+
+\input{part/poslvl1}
