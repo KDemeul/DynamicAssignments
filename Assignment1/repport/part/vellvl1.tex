@@ -1,5 +1,6 @@
-
 \subsection*{Level 1}
+\addcontentsline{toc}{subsection}{Level 1}
+
 
 We need to design a discrete time PI-controller which can be used for the following two reference signals.
 
@@ -35,7 +36,8 @@ The transfer function for the continuous PI-controller is: $$C_{PI}(p) = K\frac{
 Thus, the close loop transfer function is: \begin{equation} \label{eq1} H_{cl}(p) = \frac{C_{PI}(p) H_{m}(p)}{1 + C_{PI}(p) H_{m}(p)} \end{equation}
 
 Simplifying equation (\ref{eq1}) leads to: 
-\begin{equation} \label{contTransfertPI} H_{cl}(p) = \frac{1 + T_i p}{(1+T_i p)(1+\frac{\tau_{m}}{K K_m} p) - (T_i + \frac{\tau_m}{K K_m}p) + (T_i + \frac{T_i}{K K_m}p)} \end{equation} 
+\begin{multline} \label{contTransfertPI} H_{cl}(p) = \frac{1 + T_i p}{(1+T_i p)(1+\frac{\tau_{m}}{K K_m} p)} \\ - \frac{1 + T_i p}{(T_i + \frac{\tau_m}{K K_m}p) + (T_i + \frac{T_i}{K K_m}p)} \end{multline}
+% \begin{equation} \begin{multline} \label{contTransfertPI} H_{cl}(p) = \frac{1 + T_i p}{(1+T_i p)(1+\frac{\tau_{m}}{K K_m} p) - (T_i + \frac{\tau_m}{K K_m}p) + (T_i + \frac{T_i}{K K_m}p)} \end{multline} \end{equation} 
 
 Let \begin{equation} \label{valueTi} T_i = \tau_m \end{equation}
 
@@ -77,22 +79,30 @@ We have the following behavior with K too big:
 In order to avoid these behavior, we use the two following solutions:
 \begin{itemize}
  \item K is tuned using an iterative method (the biggest value without any overshoot)
- \item The integral part in the PI-controller is saturated in order to avoid its growing to infinity in case of a saturation of the output.
+ \item The integral part in the PI-controller is saturated ($|U| \leq 7 \text{ V}$) in order to avoid its growing to infinity in case of a saturation of the output.
 \end{itemize}
 
 \emph{This analysis leads to the following understanding : 
 Even if our system is modelized by a first order system which can theoreticaly has a step response as fast as we want, 
 the saturation in the motor input command leads to response velocity limitations.} \ \newline
 
-This behavior is visible on Figure \ref{StepPIspeed}: for each motor input, the rising velocity is the same. 
+This behavior is visible on Figure \ref{stepPIspeed}: for each motor input, the rising velocity is the same. 
 
-Figure \ref{StepPIspeed} display also that our controller fulfill the criteria with a rise time $t_r \leq 50 \text{ ms}$.
+Figure \ref{stepPIspeed} and \ref{sinPIspeed} display also that our controller fulfill the criteria for the two reference signals -- with a rise time $t_r \leq 50 \text{ ms}$.
 
 \begin{center}
-\begin{figure}[Ht]
+\begin{figure}[h]
  \includegraphics[width=\linewidth]{fig/StepPIspeed.eps}
  \caption{Motor step response for 3 step input of amplitude $(100,200,300)$ rad/s}
- \label{StepPIspeed}
+ \label{stepPIspeed}
+\end{figure}
+\end{center}
+
+\begin{center}
+\begin{figure}[h]
+ \includegraphics[width=\linewidth]{fig/SinPIspeed.eps}
+ \caption{Motor response for the sine wave reference}
+ \label{sinPIspeed}
 \end{figure}
 \end{center}
 
@@ -103,7 +113,7 @@ Using Matlab, we find the following parameters:
  \hline
  $K$ & $T_i$ (s) \\
  \hline
- $0.15$ & $0.10$ \\
+ $0.18$ & $0.8$ \\
  \hline
  \end{tabular}
 \end{center}

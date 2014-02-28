@@ -1,27 +1,40 @@
-\documentclass[a4paper,10pt]{article}
+\documentclass[a4paper,10pt,twocolumn]{article}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
-\usepackage{array}
 \usepackage[center]{caption}
+% \usepackage[top=3cm, bottom=3cm, left=2cm, right=2cm]{geometry}
 
+%---------------------------------------------
+% Font packages
+%---------------------------------------------
 % \usepackage{lmodern}
-
 % \usepackage{concmath}
-\usepackage{cmbright}
+% \usepackage{cmbright}
+% \usepackage{kpfonts}
+% \usepackage[adobe-utopia]{mathdesign}
+\usepackage{fouriernc}
 \usepackage[T1]{fontenc}
 
+%---------------------------------------------
+% Math environment packages & command
+%---------------------------------------------
 \usepackage{amsmath}
 \usepackage{amssymb}
-\usepackage{mathrsfs}
-\usepackage{caption}
 \usepackage{array}
-\usepackage{lastpage}
-% \usepackage[top=3cm, bottom=3cm, left=2cm, right=2cm]{geometry}
-\usepackage{tikz}
-% \usepackage{epstopdf}
+\usepackage{mathrsfs}
+\usepackage{array}
+\def\sgn{\mathop{\rm sgn}\nolimits} 
 
+
+%---------------------------------------------
+% item option
+%---------------------------------------------
 \renewcommand{\labelitemi}{-}
 
+
+%---------------------------------------------
+%HEADER & FOOTER
+%---------------------------------------------
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 
@@ -35,11 +48,21 @@
 % \fancyfoot[L]{truc}
 % \fancyfoot[R]{\leftmark}
 
+\usepackage{lastpage}
+
+%---------------------------------------------
+% two column option
+%---------------------------------------------
 \setlength{\columnsep}{1cm}
+
+%---------------------------------------------
+% Table of content
+%---------------------------------------------
+\usepackage[colorlinks,linkcolor=black, citecolor=black]{hyperref}
 
 %opening
 \title{MF2007: Dynamic \& Motion Control \\ Homework 1}
-\author{Kilian \sc{Demeulemeester}, Jeremy \sc{Pouech} \\ \texttt{\{kiliande,pouech}@kth.se}
+\author{Kilian \textsc{Demeulemeester}, Jeremy \textsc{Pouech} \\ \texttt{\{kiliande,pouech\}@kth.se}}
 
 \begin{document}
 
@@ -48,6 +71,11 @@
 \maketitle
 
 \tableofcontents
+
+\begin{abstract}
+ \input{part/abstract}
+\end{abstract}
+
 
 \part*{Parameter identification} 
 \addcontentsline{toc}{part}{Parameter identification}
@@ -61,5 +89,6 @@
 
 \input{part/ControllingMotor}
 
+\clearpage
 
 \end{document}
