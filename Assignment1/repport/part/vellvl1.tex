@@ -15,6 +15,7 @@ We need to design a discrete time PI-controller which can be used for the follow
 
 \begin{center} \noindent\rule{6cm}{0.1pt} \end{center}
 
+In this subsection, $T_s = 1 \text{ ms}$.
 
 In order to design the PI-controller, we use the following method:
 \begin{itemize}
@@ -36,11 +37,11 @@ Thus, the close loop transfer function is: \begin{equation} \label{eq1} H_{cl}(p
 Simplifying equation (\ref{eq1}) leads to: 
 \begin{equation} \label{contTransfertPI} H_{cl}(p) = \frac{1 + T_i p}{(1+T_i p)(1+\frac{\tau_{m}}{K K_m} p) - (T_i + \frac{\tau_m}{K K_m}p) + (T_i + \frac{T_i}{K K_m}p)} \end{equation} 
 
-Let \begin{equation} \label{valueTi} T_i = K_m \end{equation}
+Let \begin{equation} \label{valueTi} T_i = \tau_m \end{equation}
 
 This value leads to a \emph{first order transfer function in closed loop}.
 
-We then have the following transfer function : \begin{equation} H_{cl}(p) = \frac{1}{1 + \frac{\tau_m}{K K_m}} \end{equation}
+We then have the following transfer function : \begin{equation} H_{cl}(p) = \frac{1}{1 + \frac{\tau_m}{K K_m}p} \end{equation}
 
 % STEP 3
 Let $\tau_{s} = \frac{\tau_m}{K K_m}$ be the new time constant of the system.
