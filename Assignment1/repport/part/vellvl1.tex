@@ -90,22 +90,6 @@ This behavior is visible on Figure \ref{stepPIspeed}: for each motor input, the 
 
 Figure \ref{stepPIspeed} and \ref{sinPIspeed} display also that our controller fulfill the criteria for the two reference signals -- with a rise time $t_r \leq 50 \text{ ms}$.
 
-\begin{center}
-\begin{figure}[h]
- \includegraphics[width=\linewidth]{fig/StepPIspeed.eps}
- \caption{Motor step response for 3 step input of amplitude $(100,200,300)$ rad/s}
- \label{stepPIspeed}
-\end{figure}
-\end{center}
-
-\begin{center}
-\begin{figure}[h]
- \includegraphics[width=\linewidth]{fig/SinPIspeed.eps}
- \caption{Motor response for the sine wave reference}
- \label{sinPIspeed}
-\end{figure}
-\end{center}
-
 
 Using Matlab, we find the following parameters:
 \begin{center}
@@ -113,7 +97,24 @@ Using Matlab, we find the following parameters:
  \hline
  $K$ & $T_i$ (s) \\
  \hline
- $0.18$ & $0.8$ \\
+ $0.13$ & $0.8$ \\
  \hline
  \end{tabular}
 \end{center}
+
+\begin{center}
+\begin{figure}[h]
+ \includegraphics[width=\linewidth]{fig/StepPIspeed.eps}
+ \caption{Theoretical motor step response for 3 step input of amplitude $(100,200,300)$ rad/s}
+ \label{stepPIspeed}
+\end{figure}
+\end{center}
+
+\begin{center}
+\begin{figure}[h]
+ \includegraphics[width=\linewidth]{fig/SinPIspeed.eps}
+ \caption{Theoretical motor response for the sine wave reference}
+ \label{sinPIspeed}
+\end{figure}
+\end{center}
+

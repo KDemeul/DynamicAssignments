@@ -1,6 +1,7 @@
 \subsection*{Level 1}
 \addcontentsline{toc}{subsection}{Level 1}
 
+In this subsection, any sampling period can be used. Here, $T_s = 1 \text{ ms}$.
 
 Transforming the temporal criteria of the controller specification to frequency criteria leads to :
 \begin{itemize}
@@ -18,24 +19,22 @@ Moreover, since the position loop include a integrator, the steady state error w
 \end{figure}
 \end{center}
 
-In this subsection, any sampling period can be used. Here, $T_s = 1 \text{ ms}$.
-
-With the PI-controller from section \ref{velocont}, the ``continuous'' close loop transfer function of the system is:
+With the PI-controller from the previous section, the ``continuous'' close loop transfer function of the system is:
 
 \begin{equation}
- H_{cl,vel} = \frac{1}{1 + \frac{\tau_m}{K K_m}p}
+ H_{cl,vel}(p) = \frac{1}{1 + \frac{\tau_m}{K K_m}p}
 \end{equation}
 
 Therefore, outputting the position leads to the addition of an integrator block (integration of the velocity). The new transfer function is:
 
 \begin{equation}
- H_{cl,pos} = \frac{1}{p}\frac{1}{1 + \frac{\tau_m}{K K_m}p}
+ H_{cl,pos}(p) = \frac{1}{p}\frac{1}{1 + \frac{\tau_m}{K K_m}p}
 \end{equation}
 
 The maximum rise time for the velocity controller verify $t_{r,vel} \leq 5O \text{ ms} \Leftrightarrow w_c = 125.6 \text{ rad/s}$. Therefore, in the worst case scenario, the transfer function for the position is:
 
 \begin{equation}
- H_{cl,pos} = \frac{1}{p} \frac{1}{1 + \frac{p}{125.6}}
+ H_{cl,pos}(p) = \frac{1}{p} \frac{1}{1 + \frac{p}{125.6}}
 \end{equation}
 
 Figure \ref{bodePos} shows the bode diagram of this function.
