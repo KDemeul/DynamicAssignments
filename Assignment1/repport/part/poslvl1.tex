@@ -72,15 +72,24 @@ Our theoretical proportional controller is:
 
 $$C_{P}(s) = 40$$
 
-Figure \ref{StepPPos} shows the step response of the system. \emph{All of the criteria are met.}
+Figure \ref{StepPPos} shows the simulated step response of the system and Figure \ref{step_true_pos_tachi} the real step response. \emph{All of the criteria are met.}
 
 \begin{center}
 \begin{figure}[ht]
  \includegraphics[width=\linewidth]{fig/StepPPos.eps}
- \caption{Steps responses of the system controled in position for two differents amplitudes}
+ \caption{PI-controller -- Simulated steps responses of the system controled in position for two differents amplitudes}
  \label{StepPPos}
 \end{figure}
 \end{center}
+
+\begin{center}
+\begin{figure}[ht]
+ \includegraphics[width=\linewidth]{fig/step_true_pos_tachi.eps}
+ \caption{PI-controller -- Real step response of the system controled in position}
+ \label{step_true_pos_tachi}
+\end{figure}
+\end{center}
+
 
 
 
@@ -95,6 +104,15 @@ Whithout any controller, the continuous close loop function of the motor is:
 $$ H_{m,pos}(s) = \frac{\frac{K_m}{Rd+K_m}}{1+\frac{RJ}{Rd+K_M K_E}s} \frac{1}{s}$$
 
 Figure \ref{bodePos2} shows the bode diagram of this transfer function.
+
+\begin{center}
+ \begin{figure}[ht]
+ \includegraphics[width=\linewidth]{fig/bode_avance_phase.eps}
+ \caption{Bode diagram \\ Blue -- Without controller \\ Green -- With the final controller}
+ \label{bodePos2}
+ \end{figure}
+\end{center}
+
 
 We want to design a phase advance controller:
 
@@ -112,12 +130,56 @@ $$\frac{1}{T_{\Phi}\sqrt{a}} = \omega_c \Leftrightarrow T_{\Phi} = \frac{1}{\ome
 
 And $K_{\Phi}$ fulfill the following equation ($\tau_m = \frac{RJ}{Rd+K_M K_E}$): 
 
-\begin{multline*} 20 \log\left(\frac{K}{\sqrt{a}}\right) + |H_{m,pos}(s)|_{\omega = \omega_c} = 0 \\ \Leftrightarrow K_{\Phi} = \frac{\sqrt{a}}{\sqrt{1 + \tau_m \omega_c}} \approx 0.99 \end{multline*}
+\begin{multline*} 20 \log\left(\frac{K}{\sqrt{a}}\right) + |H_{m,pos}(j\omega)|_{\omega = \omega_c} = 0 \\ \Leftrightarrow K_{\Phi} = \frac{\sqrt{a}}{\sqrt{1 + \tau_m \omega_c}} \approx 0.99 \end{multline*}
 
 
 Our theoretical phase controller is:
 
 $$C_{\Phi}(s) = 0.99 \frac{1 + 0.056s}{1 + 0.0097s} $$
 
+Using this controller, we observed that the steady state error was almost equal to $20\%$. Indeed, the static error is not integrated. In order to correct that, we add an integral action in our controller.
+
+Tuning the values of those leads to the following controller:
+
+\begin{center}
+ \begin{tabular}{rcl}
+ a & = &0.2379 \\
+ T & = &  0.0478 \\
+K & = & 1.1725 \\
+Ti & = & 1 \\
+\end{tabular}
+\end{center}
+
+Thus:
+
+$$C(s) = 0.99 \left(\frac{1 + 0.049s}{1+0.011s}\right)\left(1+\frac{1}{s}\right)$$
+
+
+Figure \ref{step_avance} shows the theoretical step response of the system and Figure \ref{step_simu_avance} shows the simulated step response (with simulink). Finally, Figure \ref{step_true_advance} shows the real step response.
+
+\begin{center}
+ \begin{figure}[ht]
+ \includegraphics[width=\linewidth]{fig/step_avance.eps}
+ \caption{Phase advance -- Theoretical step response of the system with the controller}
+ \label{step_avance}
+ \end{figure}
+\end{center}
+
+\begin{center}
+ \begin{figure}[ht]
+ \includegraphics[width=\linewidth]{fig/step_simu_avance.eps}
+ \caption{Phase advance -- Simulated step response of the system with the controller}
+ \label{step_simu_avance}
+ \end{figure}
+\end{center}
+
+
+\begin{center}
+ \begin{figure}[ht]
+ \includegraphics[width=\linewidth]{fig/step_true_avance.eps}
+ \caption{Phase advance -- Real step response of the system with the controller}
+ \label{step_true_advance}
+ \end{figure}
+\end{center}
 
 
