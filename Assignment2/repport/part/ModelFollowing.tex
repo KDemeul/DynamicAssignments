@@ -1,0 +1,45 @@
+\section*{Model following control}
+\addcontentsline{toc}{section}{Model following control}
+
+\subsection*{Level 1}
+\addcontentsline{toc}{subsection}{Level 1}
+
+
+Here, we will design a model following controller by inverting the process model in the time domain.
+
+The control structure is depicted in Figure \ref{contStruct}.
+
+\begin{figure}[ht]
+\begin{center}
+$$\text{TO BE CREATED}$$
+\end{center}
+ \caption{Control structure for the DC-motor}
+ \label{contStruct}
+\end{figure}
+
+The model following block is depicted in Figure \ref{modelFollow}.
+
+\begin{figure}[ht]
+\begin{center}
+$$\text{TO BE CREATED}$$
+\end{center}
+ \caption{Model following for the DC-motor}
+ \label{modelFollow}
+\end{figure}
+
+Since the DC-motor model we used is a second order system, the reference position must be two times differentiable. 
+
+The trajectory planner is design using the fastest possible positionning:
+\begin{equation}a_{max} = \frac{\pm M_{max}}{J}\end{equation}
+\begin{equation}v_{max} = \frac{U_{max} - \frac{R}{k_\varphi} F_c}{\frac{R d}{k_\varphi} + k_\varphi}\end{equation}
+
+With:
+
+$M_{max}$ : maximum torque of the motor
+
+$v_{max}$ : maximum reachable velocity of the DC-motor, computed with the DC motor model equations.
+
+
+
+
+

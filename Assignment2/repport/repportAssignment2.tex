@@ -1,0 +1,88 @@
+\documentclass[a4paper,10pt,twocolumn]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage[center]{caption}
+
+% \usepackage[top=3cm, bottom=3cm, left=2cm, right=2cm]{geometry}
+
+%---------------------------------------------
+% Font packages
+%---------------------------------------------
+% \usepackage{lmodern}
+% \usepackage{concmath}
+% \usepackage{cmbright}
+% \usepackage{kpfonts}
+% \usepackage[adobe-utopia]{mathdesign}
+\usepackage{fouriernc}
+\usepackage[T1]{fontenc}
+
+%---------------------------------------------
+% Math environment packages & command
+%---------------------------------------------
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage{mathrsfs}
+\usepackage{array}
+\def\sgn{\mathop{\rm sgn}\nolimits} 
+
+
+%---------------------------------------------
+% item option
+%---------------------------------------------
+\renewcommand{\labelitemi}{-}
+
+
+%---------------------------------------------
+%HEADER & FOOTER
+%---------------------------------------------
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\renewcommand{\headrulewidth}{.15pt}
+\fancyhead[C]{{Homework Assignment 2}} 
+\fancyhead[L]{Page \thepage \ of \pageref{LastPage}}
+\fancyhead[R]{MF2007}
+
+\renewcommand{\footrulewidth}{.15pt}
+\fancyfoot[C]{\thepage} 
+% \fancyfoot[L]{truc}
+% \fancyfoot[R]{\leftmark}
+
+\usepackage{lastpage}
+
+%---------------------------------------------
+% two column option
+%---------------------------------------------
+\setlength{\columnsep}{1cm}
+
+%---------------------------------------------
+% Table of content
+%---------------------------------------------
+\usepackage[colorlinks,linkcolor=black, citecolor=black]{hyperref}
+
+%opening
+\title{MF2007: Dynamic \& Motion Control \\ Homework 1}
+\author{Kilian \textsc{Demeulemeester}, Jeremy \textsc{Pouech} \\ \texttt{\{kiliande,pouech\}@kth.se}}
+
+\begin{document}
+
+\setlength\parindent{0em}
+
+\maketitle
+
+\tableofcontents
+
+\begin{abstract}
+ \input{part/abstract}
+\end{abstract}
+  
+
+\part*{Servo Control} 
+\addcontentsline{toc}{part}{Servo Control}
+
+\input{part/ModelFollowing}	
+
+\clearpage
+
+\end{document}
