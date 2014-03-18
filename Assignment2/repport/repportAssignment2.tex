@@ -1,9 +1,11 @@
 \documentclass[a4paper,10pt,twocolumn]{article}
 \usepackage[utf8]{inputenc}
-\usepackage{graphicx}
+% \usepackage{graphicx}
 \usepackage[center]{caption}
 \usepackage{subcaption}
-
+\usepackage[dvipdfm]{graphicx}
+\usepackage{bmpsize}
+\usepackage{bm}
 % \usepackage[top=3cm, bottom=3cm, left=2cm, right=2cm]{geometry}
 
 %---------------------------------------------
@@ -14,8 +16,8 @@
 % \usepackage{cmbright}
 % \usepackage{kpfonts}
 % \usepackage[adobe-utopia]{mathdesign}
-\usepackage{fouriernc}
-\usepackage[T1]{fontenc}
+% \usepackage{fouriernc}
+% \usepackage[T1]{fontenc}
 
 %---------------------------------------------
 % Math environment packages & command
@@ -88,6 +90,13 @@
 \addcontentsline{toc}{part}{Writing controller code}
 
 \input{part/writingControllerCode.tex}	
+
+\clearpage
+
+\part*{Robustness to parameter ncertainty and sensor noise}
+\addcontentsline{toc}{part}{Robustness}
+
+\input{part/robustness.tex}
 
 \clearpage
 
