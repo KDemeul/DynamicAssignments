@@ -8,6 +8,7 @@ The embedded Matlab implementation leads to the exact same result than the imple
 
 Figure \ref{embedded} show the superposition of the embedded implementation and the one using Simulink.
 
+See Appendix \ref{appendixCode} for the Matlab code.
 
 \begin{figure}[ht]
   \centering
@@ -29,3 +30,21 @@ Figure \ref{embedded} show the superposition of the embedded implementation and 
 %------------------------------------------------
 \subsection*{Level 2}
 \addcontentsline{toc}{subsection}{Level 2}
+
+Once we had the model following controller with both Simulink and embedded Matlab implementation, we ran it on the real motor. Figure \ref{realresults} shows the two step responses, using the two differents methods. As previously, the two curves are entirely merged.
+
+Moreover, since our controller is designed in such a way that the motor is accelerating at $0.75 a_{max}$ and moving at most at a velocity of $0.75 v_{max}$, the trajectory planner provide safe trajectories. The step response are therefore almost the same as the one simulated.
+
+\begin{figure}[hb]
+  \centering
+ \begin{subfigure}[b]{\linewidth}
+ \includegraphics[width=\columnwidth]{fig/10rad.eps}
+ \caption{$R_s = 10\text{[rad]}$}
+ \end{subfigure}
+ \begin{subfigure}[b]{\linewidth}
+ \includegraphics[width=\columnwidth]{fig/100rad.eps}
+ \caption{$R_s = 100\text{[rad]}$}
+ \end{subfigure}
+ \caption{Simulation and real results \\ (blue) -- \\ (green) --}
+ \label{realresults}
+\end{figure}

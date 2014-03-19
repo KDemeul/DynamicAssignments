@@ -1,0 +1,58 @@
+\section{Writing Controller Code}
+\label{appendixCode}
+   
+\begin{lstlisting}
+function [ac,vc,rc,u] = fcn(Rs,t)
+%#codegen
+%% Variable declarations
+
+Ts = 1e-3;
+amax = 3000;
+vmax = 300;
+d = 5.8e-6;
+J = 1/2200000;
+Fc = 1e-4;
+R = 24;
+kM = 8.64e-3;
+kE = 30/pi*0.905e-3;
+
+%% Trajectory computation
+t1 = vmax/amax;
+t2 = Rs/vmax;
+t1p = sqrt(Rs/amax);
+
+if t1 > t2
+    t1 = t1p;
+    t2 = t1p;
+end
+
+t3 = t1+t2;
+
+ac = 0;
+vc = 0;
+rc = 0;
+if t < t1
+    ac = amax;
+    vc = amax*t;
+    rc = amax*t^2/2;
+end
+if t >= t1 && t < t2
+    ac = 0;
+    vc = amax*t1;
+    rc = amax*t1^2/2 + amax*t1*(t-t1);
+end
+if t >= t2 && t < t3
+    ac = -amax;
+    vc = amax*t1 - amax*(t-t2);
+    rc = amax*t1^2/2 + amax*t1*(t2-t1) +amax*t1*(t-t2) - amax*(t-t2)^2/2;
+end
+if t >= t3
+    ac = 0;
+    vc = 0;
+    rc = Rs;
+end
+
+%% Feedforward loop
+u = R*(J*ac + d*vc + sign(vc) * Fc)/kM + kE * vc;
+
+\end{lstlisting}
