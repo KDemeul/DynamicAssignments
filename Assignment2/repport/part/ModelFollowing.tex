@@ -7,7 +7,7 @@
 Here, we will design a model following controller by inverting the process model in the time domain.
 
 The control structure and the model following block are depicted in Figure \ref{contStruct}.
-z
+
 \begin{figure}[t!p]
 \begin{center}
   \begin{subfigure}[b]{\columnwidth}
@@ -75,9 +75,9 @@ The reference signal is then created as depicted in Figure \ref{trajplan}.
 
 Once the reference signal is designed, we simulate the system (simulation and real-case). Figure \ref{resultModelfollowing} shows the results.
  
-The Servo control model leads to an excellent control law of the motor for the two set points. Since the trajectory computed by the trajectory planner is completly reachable by the real-motor (no saturation), the planned trajectory and the real one are almost completly merged.
+The Servo control model leads to an excellent control law of the motor for the two set points. Since the trajectory computed by the trajectory planner is completly reachable by the real-motor (no saturation), the planned trajectory and the ral one are almost completly merged.
 
-\textbf{Remark:} In order to be sure of our control design, we reduced the value of $a_{max}$ and $v_{max}$ to $75\%$ of the value computed theoretically. Indeed, using the maximum value of those value drive the motor to a dangerous area.
+\textbf{Remark:} In order to be sure of our control design, we reduced the value of $a_{max}$ and $v_{max}$ to $75\%$ of the value computed theoretically. Indeed, using the maximum value of those values drive the motor to a dangerous area (too close to saturation).
 
 \begin{figure}[ht]
   \centering
@@ -90,7 +90,7 @@ The Servo control model leads to an excellent control law of the motor for the t
    \caption{$Rs = 100$[rad]}
   \end{subfigure}
 
- \caption{Position controller}
+ \caption{Simulated step responses with the position controller}
  \label{resultModelfollowing}
 \end{figure}
 

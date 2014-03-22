@@ -1,4 +1,4 @@
-This part aim to control a valve for a hydraulic cylinder. Figure \ref{valve} shows the non symetric vavle driven hydraulic cylinder. 
+This part aims to control a valve for a hydraulic cylinder. Figure \ref{valve} shows the system. 
 
 \begin{figure}[hb]
  \includegraphics[width=\linewidth]{fig/valve.ps}
@@ -12,7 +12,7 @@ This part aim to control a valve for a hydraulic cylinder. Figure \ref{valve} sh
 \subsection*{Level 2}
 \addcontentsline{toc}{subsection}{Level 2}
 
-We want to design a velocity controler for the valve controlled hydraulic cylinder -- using a continuous controller. 
+We want to design a velocity controller for the valve controlled hydraulic cylinder -- using a continuous controller. 
 
 The system will be simulate using the following reference:
 \begin{itemize}
@@ -146,7 +146,7 @@ $$\begin{array}{rcl}
 %  = \frac{1.807e7}{s^2 + 127s + 1.035e5}
  \end{multline}
   
- The system shema bloc with the controller is depicted on Figure \ref{bloc}.
+ The block diagram with the controller is depicted on Figure \ref{bloc}.
  
 \begin{figure}[hb]
 \begin{tikzpicture}
@@ -172,7 +172,7 @@ $$\begin{array}{rcl}
  \sbRelier[$n$]{N}{comp3}
  \sbRelier{BA}{comp2}
 \end{tikzpicture}
-\caption{Shema bloc of the system with the controller}
+\caption{Block diagram of the system with the controller}
 \label{bloc}
 \end{figure}
 
@@ -217,7 +217,7 @@ t_0 & = & \frac{\omega_m^2}{K_0}
 Using the method described in the subject, we obtain the following value (satisfying step response) for $\omega_m$ and $\omega_m'$, leading to the following $A_m$ and $A_0$:
 
 $$\begin{array}{rcl}
-   A_m & = s^2 + 3600s + 4e6& \\
+   A_m & = & s^2 + 3600s + 4e6 \\
    A_0 & = & s+2e3\\
   \end{array}$$
   
@@ -228,7 +228,7 @@ $$\begin{array}{rcl}
    T_e(s) & = & \frac{B(s)S(s)}{A_m(s)A_0(s)}
   \end{array}$$
 
-Figure \ref{sensitivity} show the sensitivity function and the complementary sensitivity function bode diagrams.
+Figure \ref{sensitivity} shows the sensitivity function and the complementary sensitivity function bode diagrams.
 
 \begin{figure}[hb]
   \centering
@@ -240,7 +240,7 @@ Figure \ref{sensitivity} show the sensitivity function and the complementary sen
   \includegraphics[width=\columnwidth]{fig/bode_SeTe_desginA0.eps}
    \caption{$A_0 = s + 2e4$}
   \end{subfigure}
- \caption{Bode diagram of the Sensitivity and complementary sensitivity functions \\ (green) -- $S_e$ \\ (blue) -- $T_e$ }
+ \caption{Bode diagram of the Sensitivity and complementary sensitivity functions \\ (green) -- Sensitivity function \\ (blue) -- Complementary sensitivity function }
  \label{sensitivity}
 \end{figure}
 
@@ -253,11 +253,11 @@ Figure \ref{stepIdeal} shows the step response of the system without any perturb
   \label{stepIdeal}
 \end{figure}
 
-The step response shows that:
+The step responses shows that:
 \begin{itemize}
  \item Linearized model and real one are close to each other (the linearization was legitimate a posteriori).
  \item The system react as a second order one (as defined is the design). 
- \item The step responses present no overshoot and is fast.
+ \item The step responses present no overshoot and are fast.
  \item The non-linearized is almost as fast as the linearized one.
 \end{itemize}
 
@@ -267,9 +267,9 @@ The step response shows that:
 %------------------------------------------------
 % 		STEP RESPONSE
 %------------------------------------------------
-\subsubsection*{Step response with perturbations}
+\subsubsection*{Step responses with perturbations}
 
-Keeping the same $A_m = $, figure \ref{stepPertu} shows the step response using a perturbation $f_e = 5000\text{N}$ and the the new sensitivity function bode diagram.
+Keeping the same $A_m = s^2 + 3600s + 4e6  $, figure \ref{stepPertu} shows the step responses using a perturbation $f_e = 5000\text{N}$.
 
 \begin{figure}[hb]
   \centering
@@ -281,21 +281,21 @@ Keeping the same $A_m = $, figure \ref{stepPertu} shows the step response using 
   \includegraphics[width=\columnwidth]{fig/step_Fe_w0Eq10wm.eps}
    \caption{$A_0 = s + 2e4$}
   \end{subfigure}
- \caption{Step response with a perturbation $f_e = 5000 \text{N}$\\ (green) -- real system \\ (blue) -- linearized system}
+ \caption{Step responses with a perturbation $f_e = 5000 \text{N}$\\ (green) -- real system \\ (blue) -- linearized system}
  \label{stepPertu}
 \end{figure}
 
 In the first case ($A_0 = s+2e3$), the steady state error is bigger with the perturbation. This can be explain by the fact that, looking at the bode diagram, the gain is not equal to $- \infty$ with a perturbation.  
 But the bigger $\omega_m'$ is, the smaller the gain is. This is why looking at the second step response, we have a smaller steady state error.
 
-Moreover, the system is compensing the perturbation faster with a bigger $\omega_m'$ .
+Moreover, the system is balancing the perturbation faster with a bigger $\omega_m'$ .
 
 %------------------------------------------------
 % 		MASS VARIATION
 %------------------------------------------------
 \subsubsection*{Mass variation}
 
-We change the mass from $200\text{kg}$ to $100\text{kg}$. Figure \ref{mass} shows the step responses using the two same $A_0$ as in the previous subsubsection.
+We change the mass from $100\text{kg}$ to $200\text{kg}$. Figure \ref{mass} shows the step responses using the two same $A_0$ as in the previous subsubsection.
 
 \begin{figure}[hb]
   \centering
@@ -307,7 +307,7 @@ We change the mass from $200\text{kg}$ to $100\text{kg}$. Figure \ref{mass} show
   \includegraphics[width=\columnwidth]{fig/step_m_w0eq10wm.eps}
    \caption{$A_0 = s + 2e4$}
   \end{subfigure}
- \caption{Step response with a $200\text{kg}$ mass \\ (green) -- real system \\ (blue) -- linearized system}
+ \caption{Step responses with a $200\text{kg}$ mass \\ (green) -- real system \\ (blue) -- linearized system}
  \label{mass}
 \end{figure}
 
@@ -315,14 +315,14 @@ Changing the mass, the linearized system response do not change.
 
 However, the quality of the real system response is damage by this change. Increasing the value of $\omega_m'$ leads to a better step response.
 
-This misestimation of the parameter $m$ can be seens as the addition of noise in the model. As previously, the impact of this noise is reduce by a raise of $\omega_m'$.
+This misestimation of the parameter $m$ can be seens as the addition of noise in the model. As previously, the impact of this noise is reduced by a raise of $\omega_m'$.
 
 %------------------------------------------------
 % 		NOISE EFFECT
 %------------------------------------------------
 \subsubsection*{Noise effect}
 
-In order to analyse the impact of the noise in our system, we add some noise in the feedback loop. Figure \ref{noise} shows the step response with two different $A_0$.
+In order to analyse the impact of the noise in our system, we added some in the feedback loop. Figure \ref{noise} shows the step responses with two different $A_0$.
 
 \begin{figure}[hb]
   \centering
@@ -334,7 +334,7 @@ In order to analyse the impact of the noise in our system, we add some noise in 
   \includegraphics[width=\columnwidth]{fig/step_10wm_noise.eps}
    \caption{$A_0 = s + 2e4$}
   \end{subfigure}
- \caption{Step response with a noise \\ (green) -- real system \\ (blue) -- linearized system}
+ \caption{Step responses with noise \\ (green) -- real system \\ (blue) -- linearized system}
  \label{noise}
 \end{figure}
 
