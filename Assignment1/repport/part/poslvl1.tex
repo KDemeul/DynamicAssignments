@@ -3,9 +3,9 @@
 
 In this subsection, any sampling period can be used. Here, $T_s = 1 \text{ ms}$.
 
-We designed to different controller: a \emph{proportional controller} additional to the PI-controller design in section \ref{velocont} and a \emph{phase advance controller}.
+We designed to different controller: a \emph{proportional controller} additional to the PI-controller design in section \ref{velocont} and a \emph{phase-lead controller}.
 
-Transforming the temporal criteria of the controller specification to frequency criteria leads to :
+Transforming the temporal criteria of the controller specification to frequency criteria leads to:
 \begin{itemize}
  \item Cutoff frequency: $w_c t_r \approx 3 \Leftrightarrow w_c \approx 42.8 \text{ rad/s}$
  \item Phase margin: $D\% \leq 2\% \Leftrightarrow \Delta \Phi \geq 70^{\circ}$ (see Figure \ref{overshootMargin} for this criteria)
@@ -97,7 +97,7 @@ Figure \ref{StepPPos} shows the simulated step response of the system and Figure
 % Phase advance controller
 %------------------------------
 
-\subsubsection*{Phase advance controller}
+\subsubsection*{Phase-lead controller}
 
 Whithout any controller, the continuous close loop function of the motor is:
 
@@ -114,7 +114,7 @@ Figure \ref{bodePos2} shows the bode diagram of this transfer function.
 \end{center}
 
 
-We want to design a phase advance controller:
+We want to design a phase-lead controller:
 
 $$C_{\Phi}(s) = K_{\Phi} \frac{1 + T_{\Phi}s}{1 + a T_{\Phi} s}, 0 < a < 1$$ 
 
@@ -160,7 +160,7 @@ Figure \ref{step_avance} shows the theoretical step response of the system and F
 \begin{center}
  \begin{figure}[ht]
  \includegraphics[width=\linewidth]{fig/step_avance.eps}
- \caption{Phase advance -- Theoretical step response of the system with the controller}
+ \caption{Phase-lead controller -- Theoretical step response of the system with the controller}
  \label{step_avance}
  \end{figure}
 \end{center}
@@ -168,7 +168,7 @@ Figure \ref{step_avance} shows the theoretical step response of the system and F
 \begin{center}
  \begin{figure}[ht]
  \includegraphics[width=\linewidth]{fig/step_simu_avance.eps}
- \caption{Phase advance -- Simulated step response of the system with the controller}
+ \caption{Phase-lead controller -- Simulated step response of the system with the controller}
  \label{step_simu_avance}
  \end{figure}
 \end{center}
@@ -177,7 +177,7 @@ Figure \ref{step_avance} shows the theoretical step response of the system and F
 \begin{center}
  \begin{figure}[ht]
  \includegraphics[width=\linewidth]{fig/step_true_avance.eps}
- \caption{Phase advance -- Real step response of the system with the controller}
+ \caption{Phase-lead controller -- Real step response of the system with the controller}
  \label{step_true_advance}
  \end{figure}
 \end{center}
